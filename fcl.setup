@@ -1,0 +1,21 @@
+(use make)
+
+(define nvidia32 "-I /path-to-NVIDIA/OpenCL/common/inc -L /path-to-NVIDIA/OpenCL/common/lib/Linux32 -lOpenCL")
+(define nvidia64 "-I /path-to-NVIDIA/OpenCL/common/inc -L /path-to-NVIDIA/OpenCL/common/lib/Linux64 -lOpenCL")
+(define amd32 "-I /path-to-AMD/include -L/path-to-AMD/lib/x86 -Wl,-rpath,/path-to-AMD/lib/x86 -lOpenCL")
+(define amd64 "-I /path-to-AMD/include -L/path-to-AMD/lib/x86_64 -Wl,-rpath,/path-to-AMD/lib/x86_64 -lOpenCL")
+
+(define linux-include nvidia64)
+
+(define link-options
+  (cond-expand
+   (macosx "-framework OpenCL")
+   (else linux-include)))
+
+(compile -s -d1 "fcl.scm" -j fcl ,link-options)
+(compile -s -d0 "fcl.import.scm")
+
+(install-extension
+ 'fcl
+ '("fcl.so" "fcl.import.so")
+ '((version 1.0)))

@@ -1,0 +1,18 @@
+((files "fcl.setup"
+        "fcl.scm"
+        "ast.scm"
+        "call-invoke.scm"
+        "cl-interface.scm"
+        "cl.scm"
+        "dynamic-address-space.scm"
+        "extraction.scm"
+        "gprocedure.scm"
+        "grecord-type.scm"
+        "kernel.scm"
+        "loop.scm"
+        "operation.scm"
+        "stateful-objects.scm"
+        "utility.scm")
+ (licence "BSD")
+ (author "Allen Hsu, Kevin Wortman")
+ (synopsis "functional gpu language"))
