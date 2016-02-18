@@ -1,0 +1,6 @@
+# -*-Python-*-
+
+import os
+
+env=Environment()
+env.PDF('gpu-dsel-paper.tex')
